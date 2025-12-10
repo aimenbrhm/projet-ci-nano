@@ -14,8 +14,9 @@ public class AppTest {
     }
 
     @Test
-    void testAdditionnerNombresNegatifs() {
-        // Teste avec des nombres négatifs
-        assertEquals(-2, app.additionner(-5, 3), "-5 + 3 devrait être égal à -2");
+    void testAdditionner() {
+        // BUG INTENTIONNEL: 5 + 3 devrait être 8, mais on attend 9
+        assertEquals(9, app.additionner(5, 3), "Ceci va échouer intentionnellement.");
     }
+    
 }
