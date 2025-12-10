@@ -38,3 +38,26 @@ jobs:
         name: application-jar
         # Chemin vers le fichier JAR généré par Maven
         path: target/demo-ci-1.0.jar
+        deploy:
+    # Ce job ne s'exécute que si le job 'build' a réussi
+    needs: build
+    # Utiliser un environnement de déploiement (pour cette démo, on utilise Ubuntu)
+    runs-on: ubuntu-latest
+
+    steps:
+    # Étape 1: Télécharger l'artefact créé par le job 'build'
+    - name: Télécharger l'artefact JAR
+      uses: actions/download-artifact@v4
+      with:
+        name: application-jar
+        # Le JAR sera téléchargé dans le répertoire courant
+
+    # Étape 2: Simuler l'étape de Déploiement
+    - name: Déploiement de l'application
+      run: |
+        echo "--- Démarrage du Déploiement Continu ---"
+        # Afficher le fichier pour confirmer qu'il a été téléchargé
+        ls -la
+        echo "L'artefact (demo-ci-1.0.jar) est prêt à être déployé."
+        echo "CONNEXION AU SERVEUR DE PRODUCTION (simulation)..."
+        echo "DÉPLOIEMENT TERMINÉ."
