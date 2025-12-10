@@ -30,3 +30,11 @@ jobs:
     # Étape 3: Construction et Exécution des Tests
     - name: Construction et Tests avec Maven
       run: mvn -B clean install --file pom.xml
+      # Étape 4: Télécharger l'artefact (le JAR)
+    - name: Télécharger l'artefact (JAR)
+      uses: actions/upload-artifact@v4
+      with:
+        # Nom de l'artefact tel qu'il apparaîtra sur GitHub
+        name: application-jar
+        # Chemin vers le fichier JAR généré par Maven
+        path: target/demo-ci-1.0.jar
