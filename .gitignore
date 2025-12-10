@@ -1,6 +1,4 @@
-target/
-*.class
-*.jar
-*.iml
-.idea/
+# Ignorer le répertoire de sortie de Maven
+/target/
+# Ignorer le répertoire de cache VS Code
 .vscode/
